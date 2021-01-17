@@ -1,0 +1,13 @@
+﻿@page
+@model RazorPagesApp.Pages.Students.CreateModel
+@{
+    ViewData["Title"] = "Ավելացնել նոր ուսանողի";
+}
+<h2>@ViewData["Title"]</h2>
+<div asp-validation-summary="All"></div>
+<form method="POST">
+    <div><label>Անուն:</label><br /><input asp-for="Student.Name" /></div>
+    <div><label>Ազգանուն:</label><br /><input asp-for="Student.Surname" /></div>
+    <div><label>Տարիք:</label><br /><input asp-for="Student.Age" type="number" /></div>
+    <input type="submit" value="Ուղարկել" />
+</form>

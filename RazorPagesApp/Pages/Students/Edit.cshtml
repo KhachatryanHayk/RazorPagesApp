@@ -1,0 +1,35 @@
+﻿@page "{id:int}"
+@model RazorPagesApp.Pages.Students.EditModel
+@{
+    ViewData["Title"] = "Ուսանողի տվյալնելի փոփոխում";
+}
+<h2>@ViewData["Title"]</h2>
+
+<form method="post">
+    <div asp-validation-summary="All"></div>
+    <input asp-for="Student.Id" type="hidden" />
+    <div>
+        <label>Անուն</label>
+        <div>
+            <input asp-for="Student.Name" />
+            <span asp-validation-for="Student.Name"></span>
+        </div>
+    </div>
+    <div>
+        <label>Ազգանուն</label>
+        <div>
+            <input asp-for="Student.Surname" />
+            <span asp-validation-for="Student.Surname"></span>
+        </div>
+    </div>
+    <div>
+        <label>Տարիք</label>
+        <div>
+            <input asp-for="Student.Age" type="number" />
+            <span asp-validation-for="Student.Age"></span>
+        </div>
+    </div>
+    <div>
+        <input type="submit" value="Պահպանել" />
+    </div>
+</form>

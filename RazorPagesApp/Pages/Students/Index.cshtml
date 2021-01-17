@@ -1,0 +1,32 @@
+﻿@page
+@model RazorPagesApp.Pages.Students.IndexModel
+
+@{
+    ViewData["Title"] = "Ուսանողների Ցուցակ";
+}
+<h2>@ViewData["Title"]</h2>
+
+<p><a asp-page="Create">Ավելացնել Նոր Ուսանողի</a></p>
+<table class="table">
+    <thead>
+        <tr><th>Անուն</th><th>Ազգանուն</th><th>Տարիք</th><th></th></tr>
+    </thead>
+    <tbody>
+        @foreach (var student in Model.Students)
+        {
+        <tr>
+            <td>@student.Name</td>
+            <td>@student.Surname</td>
+            <td>@student.Age</td>
+            <td>
+                <form method="post">
+                    <a asp-page="Edit" asp-route-id="@student.Id">Փոփոխել</a>
+                    <button type="submit" asp-page-handler="delete" asp-route-id="@student.Id">
+                        Ջնջել
+                    </button>
+                </form>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
